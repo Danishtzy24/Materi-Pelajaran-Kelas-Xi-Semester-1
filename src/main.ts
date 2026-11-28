@@ -1,0 +1,10 @@
+import './fonts.css';
+import './styles.css';
+import { loadLessonLinks } from './site-links';
+import { SUBJECTS } from './data';
+const links = await loadLessonLinks();
+SUBJECTS.find(s => s.id === 'bahasa-inggris')!.url = links.bahasaInggris;
+SUBJECTS.find(s => s.id === 'bahasa-jepang')!.url = links.bahasaJepang;
+SUBJECTS.find(s => s.id === 'bahasa-indonesia')!.url = links.bahasaIndonesia;
+SUBJECTS.find(s => s.id === 'pkn')!.url = links.pancasila;
+await import('./app');
